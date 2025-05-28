@@ -1,8 +1,8 @@
 from django.urls import path, include
 
-
+app_name = 'api'
 
 urlpatterns = [
-    path('index/', include('api.endpoints.index', namespace='index'))
+    path('category/', include('api.endpoints.category', namespace='category'))
 ]
 

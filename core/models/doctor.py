@@ -2,7 +2,7 @@ from django.db import models
 from .base import BaseModel
 
 
-class DoctorProfile(BaseModel):
+class Doctor(BaseModel):
     EDUCATION_TYPE = [
         ('general', 'General'),
         ('specialist', 'Specialist'),
@@ -16,11 +16,7 @@ class DoctorProfile(BaseModel):
                                  default=EDUCATION_TYPE[0][0]
                                  )
     lisence = models.PositiveIntegerField()
-    #Likes Next Episode !
     biography = models.TextField()
     category = models.ForeignKey('core.Category', on_delete=models.PROTECT, related_name='doctors') #Category.doctors.all()
     achive = models.CharField(max_length=128, null=True, blank=True)
-    schedule = models.DateTimeField() #since - till TODO: Change it To Model !  
-    # picture = models.ImageField()
-    vip = models.BooleanField(default=False)
-    #need manager
+    rating = models.DecimalField(max_digits=5, decimal_places=2, default=0)

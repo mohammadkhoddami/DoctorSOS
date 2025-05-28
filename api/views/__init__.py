@@ -1,1 +1,2 @@
-from .index import IndexApiView
+from .category import (CategoryListView,
+                       CategoryDetailView)
