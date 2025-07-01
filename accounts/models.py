@@ -9,5 +9,5 @@ class User(AbstractUser):
     ]
     
     
-    phone_number = models.CharField(max_length=11, unique=True)
+    phone_number = models.CharField(max_length=11, unique=True, null=True, blank=True)
     role = models.CharField(max_length=8, choices=ROLE_CHOICE, default=ROLE_CHOICE[1][0])

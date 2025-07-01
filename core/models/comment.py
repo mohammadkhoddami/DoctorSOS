@@ -9,8 +9,8 @@ class Comment(BaseModel):
         ('notapproved', 'NotApproved'),
     ]
     
-    doctor = models.ForeignKey('core.Doctor', on_delete=models.CASCADE)
-    author = models.ForeignKey('core.Paitent', on_delete=models.CASCADE)
+    doctor = models.ForeignKey('core.Doctor', on_delete=models.CASCADE, related_name='doctor_comment')
+    author = models.ForeignKey('core.Paitent', on_delete=models.CASCADE, related_name='patient_comment')
     body = models.TextField()
     status = models.CharField(max_length=15, choices=COMMENT_STATUS, default=COMMENT_STATUS[2][0])
     

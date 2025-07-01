@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 from .base import BaseModel
 
 
@@ -10,7 +11,10 @@ class Doctor(BaseModel):
         ('fellowship', 'Fellowship')
     ]
     
-    
+    user = models.OneToOneField(get_user_model(),
+                                on_delete=models.CASCADE,
+                                related_name='doctors',
+    )
     education = models.CharField(max_length=30,
                                  choices=EDUCATION_TYPE,
                                  default=EDUCATION_TYPE[0][0]
