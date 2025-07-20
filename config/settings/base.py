@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     #3rd party packages
     'rest_framework',
     'djoser',
+    "debug_toolbar",
     
     #local-apps
     'core.apps.CoreConfig',
@@ -32,6 +33,7 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -43,6 +45,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 WSGI_APPLICATION = 'config.wsgi.application'
 

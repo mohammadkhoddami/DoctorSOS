@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 from core.services import create_user_and_patient
 
 
-class UserInfoForPatient(serializers.ModelSerializer):
+class UserInfo(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
         fields = ['id', 'first_name', 'last_name', 'email', 'username', 'phone_number', 'password']
@@ -12,7 +12,7 @@ class UserInfoForPatient(serializers.ModelSerializer):
     
 
 class PatientSerializer(serializers.ModelSerializer):
-    user = UserInfoForPatient()
+    user = UserInfo()
     class Meta:
         model = Patient
         fields = ['id', 'user', 'age']

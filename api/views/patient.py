@@ -5,7 +5,7 @@ from core.serializers import PatientSerializer
 
 
 class PatientListView(ListCreateAPIView):
-    queryset = Patient.objects.all()
+    queryset = Patient.objects.select_related('user').all()
     serializer_class = PatientSerializer
 
 
