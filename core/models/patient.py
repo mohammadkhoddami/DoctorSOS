@@ -6,5 +6,5 @@ class Patient(BaseModel):
     user = models.OneToOneField(get_user_model(),
                                 on_delete=models.CASCADE,
                                 related_name='patients',
-    )
+    )#User.patient.all()
     age = models.PositiveIntegerField()
